@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:navigate_with_named_routes/screen/detail_screen.dart';
+import 'package:navigate_with_named_routes/screen/first_screen.dart';
+import 'package:navigate_with_named_routes/screen/second_screen.dart';
+import 'package:navigate_with_named_routes/screen/third_screen.dart';
 
 void main() {
   runApp(
@@ -8,51 +12,10 @@ void main() {
         routes: {
           '/' : (context) => const FirstScreen(),
           '/second' : (context) => const SecondScreen(),
+          '/third': (context)=> const ThirdScreen(),
+          '/detailScreen': (context) => const DetailScreen()
         },
       )
   );
 }
 
-class FirstScreen extends StatelessWidget {
-  const FirstScreen({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('First Screen'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/second');
-          },
-          child: const Text('Launch Screen'),
-        ),
-      ),
-    );
-  }
-}
-
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key});
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Second Screen'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go back'),
-        ),
-      ),
-    );
-  }
-}
